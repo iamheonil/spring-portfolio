@@ -1,1 +1,36 @@
+debug: false
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 
+logging:
+  level:
+    com.project.board: debug
+    org.springframework.web.servlet: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@oracledb_high?TNS_ADMIN=/Users/choi/Documents/Wallet_oracledb
+    username: admin
+    password: Dmsgur2805!@
+    driver-class-name: oracle.jdbc.OracleDriver
+  jpa:
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        default_batch_fetch_size: 100
+    open-in-view: false
+    database: oracle
+  sql.init.mode: always
+  data.rest:
+    base-path: /api
+    detection-strategy: annotated
+  thymeleaf3:
+    decoupled-logic: true
