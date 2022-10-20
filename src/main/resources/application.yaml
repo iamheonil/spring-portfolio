@@ -13,10 +13,10 @@ logging:
 
 spring:
   datasource:
-    url: jdbc:oracle:thin:@oracledb_high?TNS_ADMIN=/Users/choi/Documents/Wallet_oracledb
-    username: admin
-    password: Dmsgur2805!@
-    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:mariadb://138.2.122.11:3306/mysql
+    username: project
+    password: qlalf123
+    driver-class-name: org.mariadb.jdbc.Driver
   jpa:
     defer-datasource-initialization: true
     hibernate:
