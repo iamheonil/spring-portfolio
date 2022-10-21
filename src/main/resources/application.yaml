@@ -13,11 +13,12 @@ logging:
 
 spring:
   datasource:
-    url: jdbc:oracle:thin:@oracledb_high?TNS_ADMIN=/Users/choi/Documents/Wallet_oracledb
-    username: admin
-    password: Dmsgur2805!@
-    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:mariadb://138.2.122.11:3306/mysql
+    username: project
+    password: qlalf123
+    driver-class-name: org.mariadb.jdbc.Driver
   jpa:
+    database-platform: org.hibernate.dialect.MariaDB103Dialect
     defer-datasource-initialization: true
     hibernate:
       ddl-auto: create
@@ -25,9 +26,10 @@ spring:
     properties:
       hibernate:
         format_sql: true
+        hbm2ddl.auto: update
         default_batch_fetch_size: 100
     open-in-view: false
-    database: oracle
+    show-sql: true
   sql.init.mode: always
   data.rest:
     base-path: /api
