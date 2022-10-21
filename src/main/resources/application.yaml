@@ -18,6 +18,7 @@ spring:
     password: qlalf123
     driver-class-name: org.mariadb.jdbc.Driver
   jpa:
+    database-platform: org.hibernate.dialect.MariaDB103Dialect
     defer-datasource-initialization: true
     hibernate:
       ddl-auto: create
@@ -25,9 +26,10 @@ spring:
     properties:
       hibernate:
         format_sql: true
+        hbm2ddl.auto: update
         default_batch_fetch_size: 100
     open-in-view: false
-    database: oracle
+    show-sql: true
   sql.init.mode: always
   data.rest:
     base-path: /api
