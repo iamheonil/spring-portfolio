@@ -29,10 +29,11 @@ spring:
         hbm2ddl.auto: update
         default_batch_fetch_size: 100
     open-in-view: false
-    show-sql: true
   sql.init.mode: always
   data.rest:
     base-path: /api
     detection-strategy: annotated
   thymeleaf3:
     decoupled-logic: true
+server:
+  port: 8081

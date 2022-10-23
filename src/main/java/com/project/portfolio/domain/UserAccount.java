@@ -1,11 +1,19 @@
 package com.project.portfolio.domain;
 
+import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Objects;
 
+@Getter
+@ToString
+@Table(indexes={
+        @Index(columnList = "email", unique = true),
+        @Index(columnList = "createdAt"),
+        @Index(columnList = "createdBy")
+})
 @Entity
 public class UserAccount extends AuditingFields {
     @Id
@@ -40,6 +48,18 @@ public class UserAccount extends AuditingFields {
 
     public static UserAccount of(String userId, String userPassword, String userName, String birth, String email, String report, String reported) {
         return new UserAccount(userId, userPassword, userName, birth, email, report, reported);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof UserAccount that)) return false;
+        return this.getUserId() != null && this.getUserId().equals(that.getUserId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.getUserId());
     }
 
 
